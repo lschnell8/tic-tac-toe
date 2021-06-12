@@ -1,5 +1,7 @@
 * {
   margin: 0;
+  font-family: futura;
+  font-size: 2vw;
 }
 
 body {
@@ -10,41 +12,80 @@ main {
   height: 100vh;
   width: 100vw;
   display: flex;
+  background-image: linear-gradient(black, steelblue, silver);
 }
 
 aside {
+  height: 100%;
   width: 25%;
-  align-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 img {
-  width: 50%;
+  width: 70%;
 }
 
-h1{
+.token {
+  width: 45%;
+  margin-bottom: 50%;
+}
+
+h3 {
+  font-size: 1.5vw;
+}
+
+h2, span {
+  font-family: berry rotunda;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #CAD6E3;
+  font-size: 2vw;
+}
+
+h2 {
+  margin: 5% 5% 0 5%;
+}
+
+.sub-head {
+  font-size: 1.3vw;
+}
+
+.wins {
+  flex-direction: column;
+}
+
+.wins h3 {
+  font-family: futura;
+  font-size: 2vw;
 }
 
 section {
-  display: flex;
   width: 50%;
+  background-image: linear-gradient(silver, steelblue, black);
+  box-shadow: 0px 0px 20px 9px darkgrey;
+}
+
+div {
+  width: 100%;
+  height: 20%;
   justify-content: center;
-  align-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.board {
+  height: 60%;
   flex-wrap: wrap;
-  border-left: 2px solid darkturquoise;
-  border-right: 2px solid darkturquoise;
-  transform: skew(10deg, 10deg);
+  align-content: center;
 }
 
 figure {
-  border: 5px solid limegreen;
-  height: 21%;
+  border: 5px solid #CAD6E3;
+  height: 30%;
   width: 30%;
 }
 
