@@ -30,7 +30,6 @@ img {
 
 .token {
   width: 45%;
-  margin-bottom: 50%;
 }
 
 h3 {
@@ -83,8 +82,9 @@ div {
   align-content: center;
 }
 
-figure {
+button {
   border: 5px solid #CAD6E3;
+  background: transparent;
   height: 30%;
   width: 30%;
 }
