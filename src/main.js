@@ -8,7 +8,8 @@ window.addEventListener('load', addButtonListeners)
 //Event Handlers & Functions
 function addButtonListeners() {
   for(var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', makeAMove)
+    buttons[i].addEventListener('click', function() {
+    makeAMove()});
   }
 };
 
@@ -16,10 +17,14 @@ function makeAMove() {
   for(var i = 0; i < buttons.length; i++) {
     if(game.turn === game.player1 && buttons[i].id === event.target.id) {
     buttons[i].innerHTML = '<img class="token"src="./assets/swords.png" id="x"></img>';
-    } else if(game.turn === game.player2 && buttons[i].id === event.target.id) {
+  } else if(game.turn === game.player2 && buttons[i].id === event.target.id) {
       buttons[i].innerHTML = '<img class="token"src="./assets/shield.png" id="o"></img>';
     }
   }
+  game.generateValue();
+  game.checkForWinner();
+  game.player1.saveWinsToStorage();
+  game.player2.saveWinsToStorage();
   game.toggleTurn();
   changeMessage();
 };

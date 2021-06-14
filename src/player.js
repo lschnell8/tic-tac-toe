@@ -3,9 +3,11 @@ class Player {
   this.id = id;
   this.wins = 0;
   }
+  incrementWins() {
+    this.wins++
+  }
   saveWinsToStorage() {
-    JSON.stringify('winsString', this.wins)
-    localStorage.setItem('winsString')
+    localStorage.setItem('winsString', JSON.stringify(this.wins))
     // this.wins >> stringify >> save to local storage
     }
   retrieveWinsFromStorage() {
