@@ -6,9 +6,11 @@ var message = document.querySelector('h1');
 var squeakenWins = document.querySelector('.p1-wins');
 var floofintailWins = document.querySelector('.p2-wins');
 //Event Listeners
-window.addEventListener('load', addButtonListeners);
+window.addEventListener('load', loadGame);
 //Event Handlers & Functions
-function addButtonListeners() {
+function loadGame() {
+  displaySavedWins();
+  message.innerText = `It's ${game.player1.id}'s Turn'`
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function() {
       makeAMove()
@@ -28,12 +30,12 @@ function makeAMove() {
   }
   game.generateValue();
   game.checkForWinner();
-  declareWinner();
   game.player1.saveWinsToStorage();
   game.player2.saveWinsToStorage();
   displaySavedWins();
-  changeMessage();
   game.toggleTurn();
+  changeMessage();
+  declareWinner();
 };
 
 //Helper Functions
@@ -48,33 +50,47 @@ function changeMessage() {
 function declareWinner() {
   if (game.player1.isWinner) {
     message.innerText = `I dub thee, ${game.player1.id}, champion of the Squirrel Battles!`
+    game.restartGame();
+    // setTimeout(function() {
+    //   game.restartGame();
+    // }, 2000)
   } else if (game.player2.isWinner) {
     message.innerText = `I dub thee, ${game.player2.id}, champion of the Squirrel Battles!`
+    game.restartGame();
+    // setTimeout(function() {
+    //   game.restartGame();
+    // }, 2000)
+  } else if (game.totalPlays === 9 && !game.player1.isWinner && !game.player2.isWinner) {
+    message.innerText = `Inconceivable! OFF WITH YOUR HEADS!`
+    game.restartGame();
+    // setTimeout(function() {
+    //   game.restartGame();
+    // }, 2000)
   }
 };
 
 function displaySavedWins() {
-  if (game.player1.isWinner) {
-    game.player1.retrieveWinsFromStorage();
-    squeakenWins.innerText = game.player1.wins;
-  } else if (game.player2.isWinner) {
-    game.player2.retrieveWinsFromStorage();
-    floofintailWins.innerText = game.player2.wins;
-  }
+  game.player1.retrieveWinsFromStorage();
+  squeakenWins.innerText = game.player1.wins;
+  game.player2.retrieveWinsFromStorage();
+  floofintailWins.innerText = game.player2.wins;
 };
 
 function disablePlay() {
-  for(var i = 0; i < buttons.length; i++) {
-    if (game.player1.isWinner || game.player2.isWinner) {
+  for (var i = 0; i < buttons.length; i++) {
+    if (game.player1.isWinner || game.player2.isWinner || game.totalPlays === 9) {
       buttons[i].classList.add('pointer-events')
     }
   }
 };
 
 function clearBoard() {
-  for(var i = 0; i < buttons.length; i++) {
+  for (var i = 0; i < buttons.length; i++) {
     buttons[i].innerHTML = "";
     buttons[i].classList.remove('pointer-events')
   }
+  game.player1.isWinner = false;
+  game.player2.isWinner = false;
+  game.turn = game.player1;
   message.innerText = `It's ${game.player1.id}'s Turn'`
 };
