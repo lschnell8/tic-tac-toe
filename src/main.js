@@ -88,5 +88,5 @@ function clearBoard() {
   game.player1.isWinner = false;
   game.player2.isWinner = false;
   game.turn = game.player1;
-  message.innerText = `It's ${game.player1.id}'s Turn'`
+  message.innerText = `It's ${game.player1.id}'s Turn`
 };
