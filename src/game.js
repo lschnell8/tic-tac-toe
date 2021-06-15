@@ -45,7 +45,7 @@ class Game {
         disablePlay();
       } else if (this.boardProspects[i][0] === this.player2.id && this.boardProspects[i][1] === this.player2.id && this.boardProspects[i][2] === this.player2.id) {
         this.player2.incrementWins();
-        disablePlay()
+        disablePlay();
       } else if (this.totalPlays === 9) {}
     }
   }

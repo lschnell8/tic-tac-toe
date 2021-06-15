@@ -4,24 +4,19 @@
   font-size: 2vw;
 }
 
-body {
-  display: flex;
-}
-
 main {
+  display: flex;
   height: 100vh;
   width: 100vw;
-  display: flex;
   background-image: linear-gradient(black, steelblue, silver);
 }
 
+/* Player Sections */
 aside {
-  height: 100%;
-  width: 25%;
   display: flex;
+  width: 25%;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 img {
@@ -36,17 +31,14 @@ h3 {
   font-size: 1.5vw;
 }
 
-h2, span {
-  font-family: berry rotunda;
-  display: flex;
+.style {
   flex-direction: column;
-  align-items: center;
-  color: #CAD6E3;
-  font-size: 2vw;
+  line-height: 2;
 }
 
-h2 {
-  margin: 5% 5% 0 5%;
+h2, span {
+  font-family: berry rotunda;
+  color: #CAD6E3;
 }
 
 .sub-head {
@@ -55,25 +47,29 @@ h2 {
 
 .wins {
   flex-direction: column;
+  height: 20%;
 }
 
 .wins h3 {
-  font-family: futura;
   font-size: 2vw;
 }
 
+/* Game Board Section */
 section {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   background-image: linear-gradient(silver, steelblue, black);
   box-shadow: 0px 0px 20px 9px darkgrey;
 }
 
 div {
-  width: 100%;
-  height: 20%;
-  justify-content: center;
-  align-items: center;
   display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .board {
@@ -87,6 +83,8 @@ button {
   background: transparent;
   height: 30%;
   width: 30%;
+  outline: none;
+  cursor: pointer;
 }
 
 .left-border {
