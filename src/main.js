@@ -1,16 +1,19 @@
 //Global variables
 var game = new Game();
+
 //QuerySelectors
 var buttons = document.querySelectorAll('button');
 var message = document.querySelector('h1');
 var squeakenWins = document.querySelector('.p1-wins');
 var floofintailWins = document.querySelector('.p2-wins');
+
 //Event Listeners
 window.addEventListener('load', loadGame);
+
 //Event Handlers & Functions
 function loadGame() {
   displaySavedWins();
-  message.innerText = `It's ${game.player1.id}'s Turn'`
+  message.innerText = `It's ${game.player1.id}'s Turn`
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function() {
       makeAMove()
@@ -51,21 +54,14 @@ function declareWinner() {
   if (game.player1.isWinner) {
     message.innerText = `I dub thee, ${game.player1.id}, champion of the Squirrel Battles!`
     game.restartGame();
-    // setTimeout(function() {
-    //   game.restartGame();
-    // }, 2000)
   } else if (game.player2.isWinner) {
     message.innerText = `I dub thee, ${game.player2.id}, champion of the Squirrel Battles!`
     game.restartGame();
-    // setTimeout(function() {
-    //   game.restartGame();
-    // }, 2000)
   } else if (game.totalPlays === 9 && !game.player1.isWinner && !game.player2.isWinner) {
     message.innerText = `Inconceivable! OFF WITH YOUR HEADS!`
-    game.restartGame();
-    // setTimeout(function() {
-    //   game.restartGame();
-    // }, 2000)
+    setTimeout(function() {
+      game.restartGame();
+    }, 2000)
   }
 };
 

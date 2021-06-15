@@ -42,20 +42,12 @@ class Game {
     for (var i = 0; i < this.boardProspects.length; i++) {
       if (this.boardProspects[i][0] === this.player1.id && this.boardProspects[i][1] === this.player1.id && this.boardProspects[i][2] === this.player1.id) {
         this.player1.incrementWins();
-        // declareWinner();
         disablePlay();
-        // this.restartGame();
       } else if (this.boardProspects[i][0] === this.player2.id && this.boardProspects[i][1] === this.player2.id && this.boardProspects[i][2] === this.player2.id) {
         this.player2.incrementWins();
-        disablePlay();
-        // declareWinner();
-        // this.restartGame();
-      } else if (this.totalPlays === 9) {
-        // declareWinner();
-        // this.restartGame();
-      }
+        disablePlay()
+      } else if (this.totalPlays === 9) {}
     }
-    declareWinner();
   }
   restartGame() {
     this.boardProspects = [
