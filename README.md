@@ -42,6 +42,7 @@
 
   - Allow player to choose a character and a battle token.
   - Store multiple character wins and display wins upon selection.
+  - Clear saved wins on the click of a button.
 
 ## Set Up
 
