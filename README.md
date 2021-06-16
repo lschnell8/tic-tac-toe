@@ -36,7 +36,7 @@
 
 ## Deployed Page
 
-  COMING SOON!!!
+  Visit the deployed page [here](https://lschnell8.github.io/tic-tac-toe/)
 
 ## Possible Future Extensions
 
