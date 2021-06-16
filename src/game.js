@@ -14,7 +14,6 @@ class Game {
       ['b1', 'b4', 'b7'],
       ['b2', 'b5', 'b8']
     ];
-
   }
   toggleTurn() {
     if (this.player1 === this.turn) {
@@ -40,16 +39,13 @@ class Game {
   }
   checkForWinner() {
     for (var i = 0; i < this.boardProspects.length; i++) {
-      if (this.boardProspects[i][0] === this.player1.id && this.boardProspects[i][1] === this.player1.id && this.boardProspects[i][2] === this.player1.id) {
-        this.player1.incrementWins();
+      if (this.boardProspects[i][0] === this.turn.id && this.boardProspects[i][1] === this.turn.id && this.boardProspects[i][2] === this.turn.id) {
+        this.turn.incrementWins();
         disablePlay();
-      } else if (this.boardProspects[i][0] === this.player2.id && this.boardProspects[i][1] === this.player2.id && this.boardProspects[i][2] === this.player2.id) {
-        this.player2.incrementWins();
-        disablePlay();
-      } else if (this.totalPlays === 9) {}
+      }
     }
   }
-  restartGame() {
+  resetGameData() {
     this.boardProspects = [
       ['b0', 'b1', 'b2'],
       ['b3', 'b4', 'b5'],
